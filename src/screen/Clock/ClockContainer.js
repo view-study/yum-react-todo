@@ -7,10 +7,11 @@ function ClockContainer() {
   const [alarm, setAlarm] = useState(null);
 
   useEffect(() => {
+    while(moment().format().split(":")[4]==="0000");
     const timeInterver = setInterval(()=>{
-      const time = moment().format("HH:mm:ss");
+      const time = moment().format("HH:mm:ss:SSSS");
       setTime(time);
-    },100);
+    },1000);
 
     return () => {
       clearInterval(timeInterver);
